@@ -1,6 +1,7 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxGui.h"
 
 class ofApp : public ofBaseApp{
 
@@ -8,6 +9,17 @@ class ofApp : public ofBaseApp{
 		void setup();
 		void update();
 		void draw();
+    
+        ofPolyline noiseCircle(int cx, int cy, int r, int num);
+    
+        vector <ofPolyline> lines;
+    
+        ofParameter<int> diameter;
+        ofParameter<float> jitter;
+        ofParameter<float> jitter_percent;
+    
+        ofxPanel gui;
+        bool capture;
 
 		void keyPressed(int key);
 		void keyReleased(int key);
