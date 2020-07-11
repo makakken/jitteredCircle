@@ -42,7 +42,7 @@ void ofApp::keyPressed(int key){
         lines.clear();
     }
     if(key == 'a') {
-        lines.push_back(noiseCircle(300, 300, diameter, 24));
+        lines.push_back(noiseCircleTwo(300, 300, diameter, 24));
     }
 }
 
@@ -107,6 +107,35 @@ ofPolyline ofApp::noiseCircle(int cx, int cy, int r, int num) {
         ofVec3f v = ofVec3f(x,y,0);
         // line.addVertex(v);
         line.curveTo(v);
+    }
+    line.close();
+    float s = ofRandom(0,jitter_percent) + 1;
+    line.scale(s,s-0.01);
+    line.rotateDeg(45, ofVec3f(0,0,1));
+    line.translate(ofVec3f(cx,cy,0));
+    return line;
+}
+
+ofPolyline ofApp::noiseCircleTwo(int cx, int cy, int r, int num) {
+    ofPolyline line;
+    float a = TWO_PI / num;
+    vector<ofVec3f> linePoints;
+    for (int i = 0; i < num; i++) {
+        float rand = ofRandom(-1 * jitter, jitter);
+        int x = r * (1-rand) * cos(a*(i+rand));
+        int y = r * (1-rand) * sin(a*(i+rand));
+        ofVec3f v = ofVec3f(x,y,0);
+        // line.addVertex(v);
+        line.curveTo(v);
+        linePoints.push_back(v);
+    }
+    if(num > 4)
+    {
+        for(int i = 0 ; i < 3; i++)
+        {
+            
+            line.curveTo(linePoints[i]);
+        }
     }
     line.close();
     float s = ofRandom(0,jitter_percent) + 1;

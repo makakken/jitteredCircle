@@ -11,6 +11,7 @@ class ofApp : public ofBaseApp{
 		void draw();
     
         ofPolyline noiseCircle(int cx, int cy, int r, int num);
+        ofPolyline noiseCircleTwo(int cx, int cy, int r, int num);
     
         vector <ofPolyline> lines;
     
