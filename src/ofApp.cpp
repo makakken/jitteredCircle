@@ -97,8 +97,8 @@ void ofApp::dragEvent(ofDragInfo dragInfo){
 }
 
 //--------------------------------------------------------------
-ofPolyline ofApp::noiseCircle(int cx, int cy, int r, int num) {
-    ofPolyline line;
+ofPath ofApp::noiseCircle(int cx, int cy, int r, int num) {
+    ofPath line;
     float a = TWO_PI / num;
     for (int i = 0; i < num; i++) {
         float rand = ofRandom(-1 * jitter, jitter);
@@ -116,8 +116,8 @@ ofPolyline ofApp::noiseCircle(int cx, int cy, int r, int num) {
     return line;
 }
 
-ofPolyline ofApp::noiseCircleTwo(int cx, int cy, int r, int num) {
-    ofPolyline line;
+ofPath ofApp::noiseCircleTwo(int cx, int cy, int r, int num) {
+    ofPath line;
     float a = TWO_PI / num;
     vector<ofVec3f> linePoints;
     for (int i = 0; i < num; i++) {

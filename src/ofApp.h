@@ -10,10 +10,10 @@ class ofApp : public ofBaseApp{
 		void update();
 		void draw();
     
-        ofPolyline noiseCircle(int cx, int cy, int r, int num);
-        ofPolyline noiseCircleTwo(int cx, int cy, int r, int num);
+        ofPath noiseCircle(int cx, int cy, int r, int num);
+        ofPath noiseCircleTwo(int cx, int cy, int r, int num);
     
-        vector <ofPolyline> lines;
+        vector <ofPath> lines;
     
         ofParameter<int> diameter;
         ofParameter<float> jitter;
